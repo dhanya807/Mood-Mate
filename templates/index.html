@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodMate</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>MoodMate 🎧</h1>
+    <form method="post">
+      <textarea name="user_input" placeholder="How are you feeling today?" required></textarea><br>
+      <button type="submit">Analyze Mood</button>
+    </form>
+
+    {% if mood %}
+      <div class="result">
+        <h2>Your Mood: {{ mood.capitalize() }}</h2>
+        <p><strong>Quote:</strong> "{{ quote }}"</p>
+        <p><a href="{{ playlist }}" target="_blank">🎵 Open Playlist</a></p>
+        <img src="{{ image_url }}" alt="Mood Image" width="400"/>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
